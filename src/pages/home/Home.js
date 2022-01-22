@@ -1,6 +1,19 @@
-// styles
+import { useFetch } from '../../hooks/useFetch';
+
 import './Home.css';
 
+import RecipeList from '../../components/RecipeList';
+
 export default function Home() {
-	return <div>Home</div>;
+	const { data, isPending, error } = useFetch(
+		'http://localhost:3000/recipes'
+	);
+
+	return (
+		<div className="home">
+			{error && <p className="home">{error}</p>}
+			{isPending && <p className="loading">Loading</p>}
+			{data && <RecipeList recipes={data} />}
+		</div>
+	);
 }
