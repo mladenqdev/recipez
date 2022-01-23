@@ -47,6 +47,27 @@
       "method": "Pour in water, then add ingredients, then cook",
       "cookingTime": "10 minutes",
       "id": "rGMQ-uZ"
+    },
+    {
+      "title": "Gulas",
+      "ingredients": [
+        "pero",
+        "zdero"
+      ],
+      "method": "lasgu",
+      "cookingTime": "24 minutes",
+      "id": "x8vr4t9"
+    },
+    {
+      "title": "Corba",
+      "ingredients": [
+        "piletina",
+        "luk",
+        "mrkva"
+      ],
+      "method": "kuvati",
+      "cookingTime": "55 minutes",
+      "id": "_VoqPBw"
     }
   ]
 }
