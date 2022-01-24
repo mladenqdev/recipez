@@ -2,9 +2,13 @@ import { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 
+import { useTheme } from '../../hooks/useTheme';
+
 import './Create.css';
 
 export default function Create() {
+	const { mode } = useTheme();
+
 	const [title, setTitle] = useState('');
 	const [method, setMethod] = useState('');
 	const [cookingTime, setCookingTime] = useState('');
@@ -46,7 +50,7 @@ export default function Create() {
 	}, [data, history]);
 
 	return (
-		<div className="create">
+		<div className={`create ${mode}`}>
 			<h2 className="page-title">Add a New Recipe</h2>
 
 			<form onSubmit={handleSubmit}>
