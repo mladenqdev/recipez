@@ -4,3 +4,7 @@
 .App.dark {
 	background: #333;
 }
+
+.App.dark .loading {
+	color: #e4e4e4;
+}

@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
+import { projectFirestore } from '../../firebase/config';
 
 import { useTheme } from '../../hooks/useTheme';
 
@@ -17,19 +17,21 @@ export default function Create() {
 	const ingredientInput = useRef(null);
 	const history = useHistory();
 
-	const { postData, data } = useFetch(
-		'http://localhost:3000/recipes',
-		'POST'
-	);
-
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		postData({
+		const doc = {
 			title,
 			ingredients,
 			method,
 			cookingTime: cookingTime + ' minutes',
-		});
+		};
+
+		try {
+			await projectFirestore.collection('recipes').add(doc);
+			history.push('/');
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const handleAdd = (e) => {
@@ -43,12 +45,6 @@ export default function Create() {
 		ingredientInput.current.focus();
 	};
 
-	useEffect(() => {
-		if (data) {
-			history.push('/');
-		}
-	}, [data, history]);
-
 	return (
 		<div className={`create ${mode}`}>
 			<h2 className="page-title">Add a New Recipe</h2>
@@ -56,12 +52,7 @@ export default function Create() {
 			<form onSubmit={handleSubmit}>
 				<label>
 					<span>Recipe title:</span>
-					<input
-						type="text"
-						onChange={(e) => setTitle(e.target.value)}
-						value={title}
-						required
-					/>
+					<input type="text" onChange={(e) => setTitle(e.target.value)} value={title} required />
 				</label>
 
 				<label>
@@ -87,12 +78,7 @@ export default function Create() {
 
 				<label>
 					<span>Recipe method:</span>
-					<textarea
-						type="text"
-						onChange={(e) => setMethod(e.target.value)}
-						value={method}
-						required
-					/>
+					<textarea type="text" onChange={(e) => setMethod(e.target.value)} value={method} required />
 				</label>
 
 				<label>
