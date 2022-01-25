@@ -13,17 +13,21 @@
 }
 .create button {
 	display: block;
-	width: 100px;
 	font-size: 1em;
 	color: #fff;
 	padding: 8px 20px;
 	border: 0;
 	border-radius: 4px;
-	background-color: #58249c;
 	cursor: pointer;
 	text-decoration: none;
 	margin: 20px auto;
+	transition: 0.3s ease;
 }
+
+.create button:hover {
+	filter: brightness(115%);
+}
+
 .ingredients {
 	display: flex;
 	align-items: center;

@@ -11,7 +11,7 @@ export default function Recipe() {
 	const [isPending, setIsPending] = useState(false);
 	const [error, setError] = useState(null);
 
-	const { mode } = useTheme();
+	const { mode, color } = useTheme();
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -34,7 +34,7 @@ export default function Recipe() {
 	}, [id]);
 
 	return (
-		<div className={`recipe ${mode}`}>
+		<div className={`recipe ${mode}`} style={{ boxShadow: `4px 3px 13px ${color}` }}>
 			{error && <p className="error">{error}</p>}
 			{isPending && <p className="loading">Loading...</p>}
 			{recipe && (

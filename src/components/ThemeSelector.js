@@ -10,7 +10,7 @@ export default function ThemeSelector() {
 		changeMode(mode === 'dark' ? 'light' : 'dark');
 	};
 
-	const themeColors = ['#58249c', '#249c6b', '#b70233'];
+	const themeColors = ['#bbaf0e', '#2B4B40', '#971D12'];
 
 	return (
 		<div className="theme-selector">

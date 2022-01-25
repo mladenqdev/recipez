@@ -7,7 +7,7 @@ import { useTheme } from '../../hooks/useTheme';
 import './Create.css';
 
 export default function Create() {
-	const { mode } = useTheme();
+	const { mode, color } = useTheme();
 
 	const [title, setTitle] = useState('');
 	const [method, setMethod] = useState('');
@@ -64,7 +64,7 @@ export default function Create() {
 							value={newIngredient}
 							ref={ingredientInput}
 						/>
-						<button onClick={handleAdd} className="btn">
+						<button onClick={handleAdd} className="btn" style={{ background: color }}>
 							add
 						</button>
 					</div>
@@ -91,7 +91,7 @@ export default function Create() {
 					/>
 				</label>
 
-				<button type="submit" className="btn">
+				<button type="submit" className="btn" style={{ background: color }}>
 					submit
 				</button>
 			</form>
