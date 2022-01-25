@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/home/Home';
 import Create from './pages/create/Create';
-import Search from './pages/search/Search';
 import Recipe from './pages/recipe/Recipe';
 import ThemeSelector from './components/ThemeSelector';
 import { useTheme } from './hooks/useTheme';
@@ -24,9 +23,6 @@ function App() {
 					</Route>
 					<Route path="/create">
 						<Create />
-					</Route>
-					<Route path="/search">
-						<Search />
 					</Route>
 					<Route path="/recipe/:id">
 						<Recipe />
