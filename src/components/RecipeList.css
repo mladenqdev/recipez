@@ -4,7 +4,7 @@
 	grid-gap: 40px;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 40px 0;
+	padding: 20px 0;
 }
 .recipe-list .card {
 	background: rgb(243, 243, 243);
@@ -73,4 +73,16 @@
 
 .recipe-list .card.dark a:hover {
 	background: rgb(216, 214, 214);
+}
+
+@media only screen and (max-width: 992px) {
+	.recipe-list {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.recipe-list {
+		grid-template-columns: 1fr;
+	}
 }

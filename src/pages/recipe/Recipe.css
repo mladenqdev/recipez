@@ -24,6 +24,11 @@
 .recipe li:last-child::after {
 	content: '.';
 }
+
+.recipe-time {
+	margin-bottom: 10px;
+}
+
 .method {
 	text-align: left;
 	line-height: 1.5em;
